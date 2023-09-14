@@ -1,4 +1,5 @@
 --General
+vim.cmd('set timeout')
 vim.cmd('set timeoutlen=500')
 
 -- Spaces and Tabs
