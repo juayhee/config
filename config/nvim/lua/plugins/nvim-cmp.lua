@@ -17,9 +17,9 @@ return {
             formatting = lsp_zero.cmp_format(),
             mapping = cmp.mapping.preset.insert({
                 ['<Esc>'] = cmp.mapping.abort(),
-                ['<CR>'] = cmp.mapping.confirm({ select = false }), -- Do not auto-select on <CR> 
-                ['<C-j>'] = cmp_action.luasnip_supertab(),
-                ['<C-k>'] = cmp_action.luasnip_shift_supertab(),
+                ['<CR>'] = cmp.mapping.confirm({ select = true }),
+                ['<Tab>'] = cmp_action.luasnip_supertab(),
+                ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
             })
 
         })
