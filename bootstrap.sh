@@ -12,6 +12,9 @@ mkdir -p ~/.local
 echo ">> Setting up dotfiles..."
 source "${root_dir}/scripts/symlinker.sh"
 
+echo ">> Unpacking fonts..."
+source "${root_dir}/scripts/fonts.sh
+
 # System dependencies
 echo ">> Installing system dependencies..."
 source "${root_dir}/scripts/install_dependencies.sh"
