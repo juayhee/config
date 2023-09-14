@@ -1,13 +1,12 @@
 --General
 vim.cmd('set timeoutlen=500')
-vim.cmd('syntax enable')
-
 
 -- Spaces and Tabs
 vim.cmd('set tabstop=4')
 vim.cmd('set shiftwidth=4')
 vim.cmd('set expandtab')
 vim.cmd('set autoindent')
+vim.cmd('filetype plugin indent on')
 
 -- Visual
 vim.cmd('set number')
