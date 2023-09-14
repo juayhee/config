@@ -19,3 +19,9 @@ source "${root_dir}/scripts/install_dependencies.sh"
 # Install NeoVim
 echo ">> Installing NeoVim..."
 source "${root_dir}/scripts/install_neovim.sh"
+
+# Source .bashrc
+source ~/.bashrc
+
+echo "== Bootstrapping complete ==" 
+
