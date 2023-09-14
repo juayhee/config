@@ -8,16 +8,16 @@ echo $root_dir
 mkdir -p ~/.config
 mkdir -p ~/.local
 
-# Setup
+## Setup
+# System dependencies
+echo ">> Installing system dependencies..."
+source "${root_dir}/scripts/install_dependencies.sh"
+
 echo ">> Setting up dotfiles..."
 source "${root_dir}/scripts/symlinker.sh"
 
 echo ">> Unpacking fonts..."
-source "${root_dir}/scripts/fonts.sh
-
-# System dependencies
-echo ">> Installing system dependencies..."
-source "${root_dir}/scripts/install_dependencies.sh"
+source "${root_dir}/scripts/fonts.sh"
 
 # Install NeoVim
 echo ">> Installing NeoVim..."
