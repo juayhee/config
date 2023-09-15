@@ -11,7 +11,7 @@ mkdir -p ~/.local
 ## Setup
 # System dependencies
 echo ">> Installing system dependencies..."
-source "${root_dir}/scripts/install_dependencies.sh"
+# source "${root_dir}/scripts/install_dependencies.sh"
 
 echo ">> Setting up dotfiles..."
 source "${root_dir}/scripts/symlinker.sh"
@@ -21,7 +21,7 @@ source "${root_dir}/scripts/fonts.sh"
 
 # Install NeoVim
 echo ">> Installing NeoVim..."
-source "${root_dir}/scripts/install_neovim.sh"
+# source "${root_dir}/scripts/install_neovim.sh"
 
 # Source .bashrc
 source ~/.bashrc

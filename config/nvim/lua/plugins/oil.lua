@@ -9,6 +9,8 @@ return {
             ['<leader>j'] = 'actions.select',
             ['<leader>k'] = 'actions.parent',
             ['<leader>p'] = 'actions.preview',
+            ['<C-h>'] = false,
+            ['<C-l>'] = false
         },
         float = {
             max_width = 40,

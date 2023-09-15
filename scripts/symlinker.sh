@@ -21,6 +21,12 @@ echo ">> Creating symlinks to '$HOME'"
 rm ~/.bashrc 2>/dev/null || true 
 ln -s "${root_dir}/config/.bashrc" ~/ 
 echo "> Symlink set for .bashrc"
+
+# tmux
+rm ~/.tmux.conf 2>/dev/null || true
+ln -s "${root_dir}/config/.tmux.conf" ~/
+echo "> Symlink set for .tmux.conf"
+
 echo ">> Symlinks for '$HOME' complete"
 
 echo "== All symbolic links created. =="
