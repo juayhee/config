@@ -5,21 +5,18 @@ return {
     opts = {
         keymaps = {
             ['<C-v>'] = 'actions.select_vsplit',
-            ['<C-x>'] = 'actions.select_split',
-            ['<leader>j'] = 'actions.select',
-            ['<leader>k'] = 'actions.parent',
+            ['<C-s>'] = 'actions.select_split',
             ['<leader>p'] = 'actions.preview',
             ['<C-h>'] = false,
-            ['<C-l>'] = false
+            ['<C-l>'] = false,
         },
-        float = {
-            max_width = 40,
-            max_height = 64,
+        view_options = {
+            show_hidden = true,
         }
     },
     config = function(_, opts)
         local oil = require('oil')
-        vim.keymap.set('n', '<leader>ls', function() oil.toggle_float() end)
+        vim.keymap.set('n', '<leader>ls', '<cmd>Oil<CR>', { desc = 'Open parent directory' })
         oil.setup(opts)
     end
 }

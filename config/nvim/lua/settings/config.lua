@@ -1,12 +1,13 @@
 --General
 vim.cmd('set timeout')
 vim.cmd('set timeoutlen=500')
+vim.cmd('set termguicolors')
 
 -- Spaces and Tabs
 vim.cmd('set tabstop=4')
 vim.cmd('set shiftwidth=4')
 vim.cmd('set expandtab')
-vim.cmd('set autoindent')
+vim.cmd('set smartindent')
 vim.cmd('filetype plugin indent on')
 
 -- Visual

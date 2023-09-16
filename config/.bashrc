@@ -6,7 +6,8 @@ export BASH_SILENCE_DEPRECATION_WARNING=1 # Silence prompt on macos that encoura
                                           # users to change to zsh
 export CLICOLOR=1
 export PATH=$PATH:~/.local/bin 
-eval "$(/usr/local/bin/brew shellenv)"
+# eval "$(/usr/local/bin/brew shellenv)"
+export TERM=screen-256color
 
 # Aliases
 alias vim='nvim'
