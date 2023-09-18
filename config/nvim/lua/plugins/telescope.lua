@@ -13,6 +13,7 @@ return {
                 layout_strategy = 'vertical'
             }
         })
+        
     end
 }
 

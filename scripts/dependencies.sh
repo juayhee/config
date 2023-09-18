@@ -2,18 +2,21 @@
 
 set -euo pipefail
 
+# Absolute path to config root
+dir=$(realpath "$(dirname "${BASH_SOURCE[0]}")/..")
+
 if command -v apt > /dev/null
 then
     echo "Package manager detected: apt"
-    source "${root_dir}/scripts/install_apt.sh"
+    source "${dir}"/scripts/apt.sh
 elif command -v yum > /dev/null
 then
     echo "Package manager detected: yum"
-    source "${root_dir}/scripts/install_yum.sh"
+    source "${dir}"/scripts/yum.sh
 elif command -v brew > /dev/null
 then
     echo "Package manager detected: brew"
-    source "${root_dir}/scripts/install_brew.sh"
+    source "${dir}"/scripts/brew.sh
 else
     echo "!! Could not detect package manager"
     exit 1

@@ -1,29 +1,49 @@
 return {
     'neovim/nvim-lspconfig',
-    cmd = {'LspInfo', 'LspInstall', 'LspStart'},
-    event = {'BufReadPre', 'BufNewFile'},
+    cmd = { 'LspInfo', 'LspInstall', 'LspStart'},
+    event = { 'BufReadPre', 'BufNewFile' },
     dependencies = {
-        {'hrsh7th/cmp-nvim-lsp'},
-        {'williamboman/mason-lspconfig.nvim'},
+        'williamboman/mason-lspconfig.nvim',
+        'williamboman/mason.nvim',
+        'hrsh7th/cmp-nvim-lsp'
     },
     config = function()
-        -- This is where all the LSP shenanigans will live
-        local lsp_zero = require('lsp-zero')
-        lsp_zero.extend_lspconfig()
+        local lspconfig = require('lspconfig')
+        local lsp_defaults = lspconfig.util.default_config
 
-        lsp_zero.on_attach(function(client, bufnr)
-            -- see :help lsp-zero-keybindings
-            -- to learn the available actions
-            print(bufnr)
-            lsp_zero.default_keymaps({buffer = bufnr, preserve_mappings = false}) -- which-key conflicts with 'g'
-        end)
+        -- Load installed servers from Mason
 
-        require('mason-lspconfig').setup({
-            ensure_installed = {},
-            handlers = {
-                lsp_zero.default_setup,
-            }
+        require('mason').setup();
+        require('mason-lspconfig').setup()
+        require('mason-lspconfig').setup_handlers({
+            function(server)
+                lspconfig[server].setup{};
+            end
         })
+       
+        -- Add autocompletion capabilities to whatever defaults exist
+        lsp_defaults.capabilities = vim.tbl_deep_extend(
+        'force',
+        lsp_defaults.capabilities,
+        require('cmp_nvim_lsp').default_capabilities()
+        )
 
+        vim.api.nvim_create_autocmd('LspAttach', {
+            callback = function(event)
+                -- Keymaps in LSP-attached buffer
+                -- LSP API functions which have Telescope support will have their keymaps defined
+                -- in telescope.lua
+                -- List of Telescope supported functions: https://github.com/nvim-telescope/telescope.nvim#neovim-lsp-pickers
+                local opts = { buffer = event.buf } -- Identifies the attached buffer
+                vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+                vim.keymap.set('n', 'gk', vim.lsp.buf.hover, opts)
+                vim.keymap.set('n', 'gh', vim.lsp.buf.signature_help, opts)
+                vim.keymap.set('n', 'gn', vim.lsp.buf.rename, opts)
+                vim.keymap.set({ 'n', 'v' }, 'ga', vim.lsp.buf.code_action, opts)
+                vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+                vim.keymap.set('n', 'gf', function() vim.lsp.buf.format {async=true} end, opts)
+            end,
+        })
     end
 }
+

@@ -1,10 +1,22 @@
 #!/bin/bash
+set -euo pipefail
 
-unzip -o "${root_dir}"/fonts/JetBrainsMonoNL-NF.zip -d "${root_dir}"/tmp
+# Absolute path to config root
+dir=$(realpath "$(dirname "${BASH_SOURCE[0]}")/..")
 
-# Load into font cache
-fc-cache "${root_dir}"/tmp
+## Unzip and move font files into ~/.local/share/fonts
+echo ">> Extracting files..."
+unzip -o "${dir}"/fonts/JetBrainsMonoNL-NF.zip -d "${dir}"/tmp
+
+echo ">> Copying to ~/.local/share/fonts"
+mkdir -p ~/.fonts
+cp -r "${dir}"/tmp ~/.local/share/fonts
+
+# Reload font cache
+echo ">> Refreshing font cache..."
+fc-cache -frv
 
 # Clean up
-rm -r "${root_dir}"/tmp
+rm -r "${dir}"/tmp
 
+echo "== Font setup complete. =="
