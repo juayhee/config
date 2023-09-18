@@ -14,8 +14,9 @@ vim.cmd('filetype plugin indent on')
 vim.cmd('set number')
 vim.cmd('set rnu')
 vim.cmd('set showcmd')
-vim.cmd('set nohlsearch') -- No highlighting after search
 
 -- Search
 vim.cmd('set incsearch')
 vim.cmd('set ignorecase')
+vim.cmd('au TextYankPost * silent! lua vim.highlight.on_yank()')
+

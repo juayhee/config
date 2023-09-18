@@ -3,6 +3,9 @@ vim.g.mapleader = ' '
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 
+-- Press enter again to clear search highlights
+vim.keymap.set('n', '<cr>', '<cmd>noh<cr><cr>')
+
 -- Re-centre cursor after jumps
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
@@ -16,8 +19,8 @@ vim.keymap.set('v', '<leader>y', '\"+y')
 vim.keymap.set('n', '<leader>Y', '\"+Y')
 
 -- Quickfix navigation
-vim.keymap.set('n', '<C-k>', '<cmd>cnext<cr>zz')
-vim.keymap.set('n', '<C-j>', '<cmd>cprev<cr>zz')
+vim.keymap.set('n', '<C-k>', '<cmd>cnext<cr>zz' )
+vim.keymap.set('n', '<C-j>', '<cmd>cprev<cr>zz' )
 vim.keymap.set('n', '<leader>k', '<cmd>lnext<cr>zz')
 vim.keymap.set('n', '<leader>j', '<cmd>lprev<cr>zz')
 

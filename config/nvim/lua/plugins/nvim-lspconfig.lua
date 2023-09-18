@@ -1,7 +1,7 @@
 return {
     'neovim/nvim-lspconfig',
-    cmd = { 'LspInfo', 'LspInstall', 'LspStart'},
-    event = { 'BufReadPre', 'BufNewFile' },
+    cmd = { 'LspInfo', 'LspInstall', 'LspStart' },
+    event = { 'BufNewFile', 'BufReadPre' },
     dependencies = {
         'williamboman/mason-lspconfig.nvim',
         'williamboman/mason.nvim',
@@ -22,7 +22,6 @@ return {
         -- Load installed servers from Mason
         require('mason').setup();
         require('mason-lspconfig').setup()
-        -- This isn't actually called until 
         require('mason-lspconfig').setup_handlers({
             function(server)
                 lspconfig[server].setup{};

@@ -7,7 +7,7 @@ return {
         -- LSP bindings
         wk.register({
             g = {
-                name = 'LSP',
+                name = 'LSP / default keybinds',
                 D = { 'List declarations' },
                 d = { 'List definitions' },
                 t = {
@@ -20,7 +20,7 @@ return {
                 a = { 'View code actions' },
                 f = { 'Format code' },
                 s = { 'List symbols in this file' },
-                v = { 'Open diagnostic information for this file' }
+                q = { 'Open diagnostic information for this file' }
             },
             { mode = 'n' }
         })

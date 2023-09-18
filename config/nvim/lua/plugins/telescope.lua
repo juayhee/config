@@ -16,6 +16,10 @@ return {
                 layout_strategy = 'vertical',
                 -- Keymaps in Telescope buffer
                 mappings = {
+                    i = {
+                        -- Disable moving around the telescope buffer in insert
+                        ['<tab>'] = false,
+                    },
                     n = {
                         ['<C-v>'] = false,
                         ['<M-v>'] = actions.select_vertical,
@@ -55,7 +59,7 @@ return {
                 vim.keymap.set('n', 'gf', function() vim.lsp.buf.format {async=true} end, opts)
                 vim.keymap.set('n', 'gs', builtin.lsp_document_symbols, opts)
                 vim.keymap.set('n', 'gi', builtin.lsp_implementations, opts)
-                vim.keymap.set('n', 'gv', builtin.diagnostics, opts)
+                vim.keymap.set('n', 'gq', builtin.diagnostics, opts)
             end,
         })
     end
