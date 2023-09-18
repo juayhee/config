@@ -11,6 +11,11 @@ rm -rf ~/.config/kitty 2>/dev/null || true
 ln -s "${dir}/config/kitty" ~/.config/kitty 
 echo "> Symlink set for Kitty"
 
+# Zellij
+rm -rf ~/.config/zellij 2>/dev/null || true
+ln -s "${dir}/config/zellij" ~/.config/zellij 
+echo "> Symlink set for Zellij"
+
 # NeoVim
 rm -rf ~/.config/nvim 2>/dev/null || true
 ln -s  "${dir}/config/nvim" ~/.config/nvim 

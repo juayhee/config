@@ -1,0 +1,49 @@
+// General
+default_shell "bash"
+pane_frames false
+mouse_mode false
+scrollback_editor "/usr/bin/vi"
+
+
+// UI
+theme "kanagawa-dragon"
+ui {
+    pane_frames {
+        hide_session_name true
+    }
+}
+
+// Theme definitions
+themes {
+   kanagawa-dragon {
+        fg 197 201 197
+        bg 24 22 22
+        black 13 12 12 
+        red 196 116 110
+        green 138 154 123
+        yellow 196 178 138
+        blue 98 114 164
+        magenta 255 121 198
+        cyan 139 233 253
+        white 200 192 147
+        orange 255 158 100
+   }
+}
+
+// Keymaps
+keybinds {
+    shared_except "locked" {
+        bind "Ctrl l" { SwitchToMode "locked"; }
+        bind "Ctrl d" { SwitchToMode "move"; }
+        bind "Ctrl w" { SwitchToMode "tab"; }
+    }
+    locked {
+        bind "Ctrl l" { SwitchToMode "normal"; }
+    }
+    move {
+        bind "Ctrl d" { SwitchToMode "normal"; }
+    }
+    tab {
+        bind "Ctrl w" { SwitchToMode "normal"; }
+    }
+}
