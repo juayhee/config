@@ -5,6 +5,6 @@ return {
         marks.setup()
 
         -- Keymaps
-        vim.keymap.set('n', '<leader>ml', '<cmd>MarksListBuf<cr>', { desc = 'List marks in current buffer' })
+        vim.keymap.set('n', '<leader>m', '<cmd>MarksListBuf<cr>', { desc = 'List marks in current buffer' })
     end
 }

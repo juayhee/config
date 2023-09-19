@@ -16,31 +16,95 @@ ui {
 
 // Theme definitions
 themes {
-   kanagawa-dragon {
+    kanagawa-dragon {
         fg 197 201 197
-        bg 24 22 22
-        black 13 12 12 
-        red 196 116 110
-        green 138 154 123
-        yellow 196 178 138
-        blue 98 114 164
-        magenta 255 121 198
-        cyan 139 233 253
-        white 200 192 147
-        orange 255 158 100
-   }
+            bg 24 22 22
+            black 13 12 12 
+            red 196 116 110
+            green 138 154 123
+            yellow 196 178 138
+            blue 98 114 164
+            magenta 255 121 198
+            cyan 139 233 253
+            white 200 192 147
+            orange 255 158 100
+    }
 }
 
-// Keymaps
 keybinds {
-    shared_except "locked" {
-        bind "Ctrl l" { SwitchToMode "locked"; }
-        bind "Ctrl w" { SwitchToMode "tab"; }
-    }
     locked {
-        bind "Ctrl l" { SwitchToMode "normal"; }
+        unbind "Ctrl g"
+        bind "Alt j" { SwitchToMode "Normal"; }
+    }
+    resize {
+        unbind "Ctrl n"
+            bind "Alt r" { SwitchToMode "Normal"; }
+    }
+    pane {
+        unbind "Ctrl p"
+            bind "Alt p" { SwitchToMode "Normal"; }
+    }
+    move {
+        unbind "Ctrl h"
+            bind "Alt m" { SwitchToMode "Normal"; }
     }
     tab {
-        bind "Ctrl w" { SwitchToMode "normal"; }
+        unbind "Ctrl t"
+            bind "Alt w" { SwitchToMode "Normal"; }
+    }
+    scroll {
+        unbind "Ctrl s"
+            bind "Alt s" { SwitchToMode "Normal"; }
+    }
+    search {
+        unbind "Ctrl s"
+    }
+    entersearch {
+        unbind "Ctrl c"
+    }
+    renametab {
+        unbind "Ctrl c"
+    }
+    renamepane {
+        unbind "Ctrl c"
+    }
+    session {
+        unbind "Ctrl o"
+            unbind "Ctrl s"
+            bind "Alt o" { SwitchToMode "Normal"; }
+        bind "Alt s" { SwitchToMode "Scroll"; }
+    }
+    shared_except "locked" {
+        unbind "Ctrl g"
+            unbind "Ctrl q"
+            bind "Alt ;" { SwitchToMode "locked"; }
+        bind "Alt q" { Quit; }
+    } 
+    shared_except "pane" "locked" {
+        unbind "Ctrl p"
+            bind "Alt p" { SwitchToMode "pane"; }
+    }
+    shared_except "resize" "locked" {
+        unbind "Ctrl n"
+            bind "Alt r" { SwitchToMode "Resize"; }
+    }
+    shared_except "scroll" "locked" {
+        unbind "Ctrl s"
+            bind "Alt s" { SwitchToMode "Scroll"; }
+    }
+    shared_except "session" "locked" {
+        unbind "Ctrl o"
+            bind "Alt o" { SwitchToMode "Session"; }
+    }
+    shared_except "tab" "locked" {
+        unbind "Ctrl t"
+            bind "Alt w" { SwitchToMode "Tab"; }
+    }
+    shared_except "move" "locked" {
+        unbind "Ctrl h"
+            bind "Alt m" { SwitchToMode "Move"; }
+    }
+    shared_except "session" "locked" {
+        unbind "Ctrl b"
     }
 }

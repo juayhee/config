@@ -30,4 +30,3 @@ then
 else
     echo "!! Could not detect package manager"
     exit 1
-fi

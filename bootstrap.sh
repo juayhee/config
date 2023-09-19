@@ -39,6 +39,5 @@ echo ">> Unpacking fonts..."
 source "${root_dir}"/scripts/fonts.sh
 
 
-
 echo "== Bootstrapping complete ==" 
 

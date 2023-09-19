@@ -1,5 +1,6 @@
 return {
-    'nvim-telescope/telescope.nvim', branch = '0.1.x',
+    'nvim-telescope/telescope.nvim',
+    branch = '0.1.x',
     dependencies = { 'nvim-lua/plenary.nvim',
         'nvim-telescope/telescope-fzf-native.nvim' },
     keys = {
@@ -10,6 +11,7 @@ return {
     config = function()
         local actions = require('telescope.actions')
         local builtin = require('telescope.builtin')
+        local utils = require('telescope.utils')
 
         require('telescope').setup({
             defaults = {
@@ -21,13 +23,9 @@ return {
                         ['<tab>'] = false,
                     },
                     n = {
-                        ['<C-v>'] = false,
-                        ['<M-v>'] = actions.select_vertical,
-                        ['<C-s>'] = false,
-                        ['<M-s>'] = actions.select_horizontal,
+                        ['<C-w>s'] = actions.select_horizontal,
+                        ['<C-w>v'] = actions.select_vertical,
                         ['<Tab>'] = actions.toggle_selection,
-                        ['<C-q>'] = false,
-                        ['<M-q>'] = false,
                         ['<leader>fq'] = actions.send_to_qflist + actions.open_qflist,
                         ['<leader>fw'] = actions.send_selected_to_qflist + actions.open_qflist,
                     }
@@ -37,9 +35,11 @@ return {
 
         -- Global keymaps
         -- Lazy load on triggering these keys
-        vim.keymap.set('n', '<leader>ff', builtin.git_files)
-        vim.keymap.set('n', '<leader>fs', builtin.live_grep)
-        vim.keymap.set('n', '<leader>fr', builtin.resume)
+        vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'All-file file search' })
+        vim.keymap.set('n', '<leader>fg', builtin.git_files, { desc = '.gitignore aware file search' })
+        vim.keymap.set('n', '<leader>fgs', builtin.live_grep, { desc = 'Global string search' })
+        vim.keymap.set('n', '<leader>fls', builtin.current_buffer_fuzzy_find, { desc = 'Local string search' })
+        vim.keymap.set('n', '<leader>fr', builtin.resume, { desc = 'Open previous search' })
 
         -- These keys need to be registered before any LspAttach
         -- As a result lspconfig is dependent on telescope to load first
@@ -47,20 +47,19 @@ return {
             callback = function(event)
                 -- Keymaps in LSP-attached buffer
                 local opts = { buffer = event.buf } -- Identifies the attached buffer
-                vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-                vim.keymap.set('n', 'gd', builtin.lsp_definitions, opts)
-                vim.keymap.set('n', 'gtd', builtin.lsp_type_definitions, opts)
-                vim.keymap.set('n', 'gr', builtin.lsp_references, opts)
-                vim.keymap.set('n', 'gk', vim.lsp.buf.hover, opts)
-                vim.keymap.set('n', 'gh', vim.lsp.buf.signature_help, opts)
-                vim.keymap.set('n', 'gn', vim.lsp.buf.rename, opts)
-                vim.keymap.set({ 'n', 'v' }, 'ga', vim.lsp.buf.code_action, opts)
-                vim.keymap.set('n', 'gf', function() vim.lsp.buf.format {async=true} end, opts)
-                vim.keymap.set('n', 'gs', builtin.lsp_document_symbols, opts)
-                vim.keymap.set('n', 'gi', builtin.lsp_implementations, opts)
-                vim.keymap.set('n', 'gq', builtin.diagnostics, opts)
+                vim.keymap.set('n', '<leader>gD', vim.lsp.buf.declaration, opts)
+                vim.keymap.set('n', '<leader>gd', builtin.lsp_definitions, opts)
+                vim.keymap.set('n', '<leader>gt', builtin.lsp_type_definitions, opts)
+                vim.keymap.set('n', '<leader>gr', builtin.lsp_references, opts)
+                vim.keymap.set('n', '<leader>gh', vim.lsp.buf.hover, opts)
+                vim.keymap.set('n', '<leader>gs', vim.lsp.buf.signature_help, opts)
+                vim.keymap.set('n', '<leader>gn', vim.lsp.buf.rename, opts)
+                vim.keymap.set('n', '<leader>ga', vim.lsp.buf.code_action, opts)
+                vim.keymap.set('n', '<leader>gf', function() vim.lsp.buf.format { async = true } end, opts)
+                vim.keymap.set('n', '<leader>gS', builtin.lsp_document_symbols, opts)
+                vim.keymap.set('n', '<leader>gi', builtin.lsp_implementations, opts)
+                vim.keymap.set('n', '<leader>gx', builtin.diagnostics, opts)
             end,
         })
     end
 }
-

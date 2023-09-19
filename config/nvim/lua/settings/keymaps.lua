@@ -18,23 +18,26 @@ vim.keymap.set('n', '<leader>y', '\"+y')
 vim.keymap.set('v', '<leader>y', '\"+y')
 vim.keymap.set('n', '<leader>Y', '\"+Y')
 
--- Quickfix navigation
-vim.keymap.set('n', '<C-k>', '<cmd>cnext<cr>zz' )
-vim.keymap.set('n', '<C-j>', '<cmd>cprev<cr>zz' )
-vim.keymap.set('n', '<leader>k', '<cmd>lnext<cr>zz')
-vim.keymap.set('n', '<leader>j', '<cmd>lprev<cr>zz')
-
 -- Windows
-vim.keymap.set('n', '<M-v>', '<cmd>vsplit<cr>')
-vim.keymap.set('n', '<M-s>', '<cmd>split<cr>')
+vim.keymap.set('n', '<C-H>', '<cmd>vertical :res -10<cr>')
+vim.keymap.set('n', '<C-L>', '<cmd>vertical :res +10<cr>')
+vim.keymap.set('n', '<C-J>', '<cmd>:res -10<cr>')
+vim.keymap.set('n', '<C-K>', '<cmd>:res +10<cr>')
 
-vim.keymap.set('n', '<M-h>', '<cmd>wincmd h<cr>')
-vim.keymap.set('n', '<M-j>', '<cmd>wincmd j<cr>')
-vim.keymap.set('n', '<M-k>', '<cmd>wincmd k<cr>')
-vim.keymap.set('n', '<M-l>', '<cmd>wincmd l<cr>')
+-- Quickfix list navigation
+vim.api.nvim_exec([[
+  augroup QuickfixListNav
+    autocmd!
+    autocmd FileType qf nnoremap <buffer> j :cnext<CR>
+    autocmd FileType qf nnoremap <buffer> k :cprev<CR>
+  augroup END
+]], false)
 
-vim.keymap.set('n', '<M-H>', '<cmd>vertical :res -10<cr>')
-vim.keymap.set('n', '<M-L>', '<cmd>vertical :res +10<cr>')
-vim.keymap.set('n', '<M-J>', '<cmd>:res -10<cr>')
-vim.keymap.set('n', '<M-K>', '<cmd>:res +10<cr>')
-vim.keymap.set('n', '<M-=>', '<cmd>wincmd =<cr>')
+-- Location list navigation
+vim.api.nvim_exec([[
+  augroup LocationListNav
+    autocmd!
+    autocmd FileType * if !empty(getloclist(0)) | echo "Triggered" | nnoremap <buffer> j :lnext<CR>:lopen<CR> | nnoremap <buffer> k :lprev<CR>:lopen<CR> | endif
+  augroup END
+]], false)
+
