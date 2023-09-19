@@ -2,13 +2,17 @@
 
 set -euo pipefail
 
+platform=$(uname)
 # Absolute path to config root
 dir=$(realpath "$(dirname "${BASH_SOURCE[0]}")/..")
 
-if command -v apt > /dev/null
+if [ $platform != "Darwin" ] > /dev/null
 then
-    echo "Package manager detected: apt"
-    source "${dir}"/scripts/apt.sh
+    if command -v apt # macos has a dummy alias to apt
+    then
+        echo "Package manager detected: apt"
+        source "${dir}"/scripts/apt.sh
+    fi
 elif command -v yum > /dev/null
 then
     echo "Package manager detected: yum"
