@@ -6,7 +6,7 @@ dir=$(realpath "$(dirname "${BASH_SOURCE[0]}")/..")
 
 ## Unzip and move font files into ~/.local/share/fonts
 echo ">> Extracting files..."
-unzip -o "${dir}"/fonts/JetBrainsMonoNL-NF.zip -d "${dir}"/tmp
+unzip -o "${dir}"/fonts/JetBrainsMono.zip -d "${dir}"/tmp
 
 echo ">> Copying to ~/.local/share/fonts"
 mkdir -p ~/.fonts

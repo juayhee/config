@@ -35,14 +35,10 @@ themes {
 keybinds {
     shared_except "locked" {
         bind "Ctrl l" { SwitchToMode "locked"; }
-        bind "Ctrl d" { SwitchToMode "move"; }
         bind "Ctrl w" { SwitchToMode "tab"; }
     }
     locked {
         bind "Ctrl l" { SwitchToMode "normal"; }
-    }
-    move {
-        bind "Ctrl d" { SwitchToMode "normal"; }
     }
     tab {
         bind "Ctrl w" { SwitchToMode "normal"; }

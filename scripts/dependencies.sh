@@ -8,7 +8,7 @@ dir=$(realpath "$(dirname "${BASH_SOURCE[0]}")/..")
 
 if [ $platform != "Darwin" ] > /dev/null
 then
-    if command -v apt # macos has a dummy alias to apt
+    if command -v apt
     then
         echo "Package manager detected: apt"
         source "${dir}"/scripts/apt.sh
