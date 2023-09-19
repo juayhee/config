@@ -2,14 +2,13 @@
 export BASH_SILENCE_DEPRECATION_WARNING=1 # Silence prompt on macos that encourages
                                           # users to change to zsh
 export CLICOLOR=1
-export PATH=$PATH:~/.local/bin 
-export TERM=screen-256color
+export PATH=$PATH:~/.local/bin
 
 # Set homebrew paths on macos
 platform=$(uname)
-if [ platform = "Darwin" ]
+if [ $platform = "Darwin" ]
 then
-    eval "$(/usr/local/bin/brew shellenv)"
+    eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
 # Aliases

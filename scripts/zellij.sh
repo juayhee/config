@@ -17,8 +17,8 @@ cd ${dir}/tmp
 if [ $platform = "Linux" ]
 then
     curl -LO https://github.com/zellij-org/zellij/releases/download/v0.38.2/zellij-x86_64-unknown-linux-musl.tar.gz
-else
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+else	
+    curl -LO https://github.com/zellij-org/zellij/releases/download/v0.38.2/zellij-aarch64-apple-darwin.tar.gz
 fi
 
 echo ">> Unpacking Zellij..."

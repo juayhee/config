@@ -6,7 +6,13 @@ platform=$(uname)
 # Absolute path to config root
 dir=$(realpath "$(dirname "${BASH_SOURCE[0]}")/..")
 
-if [ $platform != "Darwin" ] > /dev/null
+# Install brew just in case it isn't there yet
+if [ $platform = "Darwin" ]
+then
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+
+if [ $platform != "Darwin" ]
 then
     if command -v apt
     then
