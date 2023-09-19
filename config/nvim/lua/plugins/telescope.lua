@@ -37,7 +37,7 @@ return {
 
         -- Global keymaps
         -- Lazy load on triggering these keys
-        vim.keymap.set('n', '<leader>ff', builtin.find_files)
+        vim.keymap.set('n', '<leader>ff', builtin.git_files)
         vim.keymap.set('n', '<leader>fs', builtin.live_grep)
         vim.keymap.set('n', '<leader>fr', builtin.resume)
 
@@ -45,7 +45,6 @@ return {
         -- As a result lspconfig is dependent on telescope to load first
         vim.api.nvim_create_autocmd('LspAttach', {
             callback = function(event)
-                print("test")
                 -- Keymaps in LSP-attached buffer
                 local opts = { buffer = event.buf } -- Identifies the attached buffer
                 vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)

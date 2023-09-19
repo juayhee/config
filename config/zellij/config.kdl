@@ -3,6 +3,7 @@ default_shell "bash"
 pane_frames false
 mouse_mode false
 scrollback_editor "/usr/bin/vi"
+on_force_close "detach"
 
 
 // UI
