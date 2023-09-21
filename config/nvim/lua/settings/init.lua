@@ -1,7 +1,9 @@
 -- Load keymaps
 require("settings.keymaps")
 
--- Load configurations
+-- Load vim configurations
 require("settings.config")
 
-print("loaded settings")
+-- Load custom plugins
+require('custom.custom')
+print("Settings loaded.")

@@ -18,33 +18,6 @@ vim.keymap.set('n', '<leader>y', '\"+y')
 vim.keymap.set('v', '<leader>y', '\"+y')
 vim.keymap.set('n', '<leader>Y', '\"+Y')
 
--- Windows
-vim.keymap.set('n', '<C-H>', '<cmd>vertical :res -10<cr>')
-vim.keymap.set('n', '<C-L>', '<cmd>vertical :res +10<cr>')
-vim.keymap.set('n', '<C-J>', '<cmd>:res -10<cr>')
-vim.keymap.set('n', '<C-K>', '<cmd>:res +10<cr>')
-
--- Quickfix list navigation
-vim.api.nvim_create_augroup('Quickfix', {
-    clear = true,})
-
-vim.api.nvim_create_autocmd({'FileType'}, {
-    group = 'Quickfix',
-    pattern = 'qf',
-    desc = 'Quickfix list local navigation keybinds',
-    callback = function()
-        vim.keymap.set('n', 'j', function()
-            vim.cmd('lnext')
-            vim.cmd('wincmd p')
-        end, { buffer = 0 })
-        vim.keymap.set('n', 'k', function()
-            vim.cmd('lprev')
-            vim.cmd('wincmd p')
-        end, { buffer = 0 })
-        vim.keymap.set('n', '<cr>', function()
-            vim.cmd('lclose')
-        end, { buffer = 0 })
-    end
-})
-
+-- Location list opening
 vim.keymap.set('n', '<leader>q', '<cmd>lopen<cr>', { desc = 'Open location list' })
+
