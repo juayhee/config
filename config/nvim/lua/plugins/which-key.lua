@@ -21,6 +21,9 @@ return {
                     S = { 'List symbols in this file' },
                     i = { 'Go to implementation' },
                     x = { 'Open diagnostic information for this file' }
+                },
+                f = {
+                    name = 'Telescope'
                 }
             },
             { mode = 'n' }
