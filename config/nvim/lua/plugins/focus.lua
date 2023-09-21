@@ -5,7 +5,8 @@ return {
         focus.setup()
 
         -- Keymaps
-        vim.keymap.set('n', '<leader>wm', '<cmd>FocusMaximise<cr>', { desc = 'Toggle window maximisation' })
+        vim.keymap.set('n', '<leader>we', '<cmd>FocusEqualise<cr>', { desc = 'Equalise windows' })
         vim.keymap.set('n', '<leader>wr', '<cmd>FocusAutoresize<cr>', { desc = 'Autoresize windows' })
+        vim.keymap.set('n', '<leader>ww', '<cmd>FocusMaximise<cr>', { desc = 'Maximise current window' })
     end
 }

@@ -14,7 +14,8 @@ vim.cmd('filetype plugin indent on')
 vim.cmd('set number')
 vim.cmd('set rnu')
 vim.cmd('set showcmd')
-vim.cmd('hi clear CursorLine') -- No background highlighting on cursor line
+vim.o.cursorline = true
+vim.o.cursorlineopt='number' -- Only highlight the line number
 
 -- Search
 vim.cmd('set incsearch')
@@ -22,5 +23,5 @@ vim.cmd('set ignorecase')
 vim.cmd('au TextYankPost * silent! lua vim.highlight.on_yank()')
 
 -- Splits
-vim.o.splitright = true -- Always split to the right
-vim.o.splitbelow = true -- Always split down
+vim.o.splitright=true -- Always split to the right
+vim.o.splitbelow=true -- Always split down

@@ -24,7 +24,13 @@ return {
                 },
                 f = {
                     name = 'Telescope'
-                }
+                },
+                a = {
+                    name = 'Annotate',
+                },
+                w = {
+                    name = 'Focus',
+                },
             },
             { mode = 'n' }
         })

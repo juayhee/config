@@ -3,7 +3,7 @@ local id = vim.api.nvim_create_augroup('location-list', {
 })
 
 --Quickfix list navigation
-vim.api.nvim_create_autocmd({'BufEnter'}, {
+vim.api.nvim_create_autocmd({'FileType'}, {
     group = 'location-list',
     pattern = 'qf',
     desc = 'Location list navigation keybinds',
@@ -11,15 +11,19 @@ vim.api.nvim_create_autocmd({'BufEnter'}, {
         local bufnr = vim.api.nvim_get_current_buf()
         print(bufnr)
         vim.keymap.set('n', 'j', function()
-            vim.fmd('lnext')
-        end)
+            vim.cmd('lnext')
+            vim.cmd('wincmd p')
+        end, { buffer = 0 } )
 
         vim.keymap.set('n', 'k', function()
             vim.cmd('lprev')
-        end)
+            vim.cmd('wincmd p')
+        end, { buffer = 0 })
 
         vim.keymap.set('n', '<cr>', function()
             vim.cmd('lclose')
-        end)
+            vim.cmd('wincmd p')
+            vim.cmd('normal zz') -- Centre the selection upon returning
+        end, { buffer = 0 })
     end
 })

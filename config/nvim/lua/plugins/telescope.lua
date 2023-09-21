@@ -36,9 +36,9 @@ return {
         -- Global keymaps
         -- Lazy load on triggering these keys
         vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'All-file file search' })
-        vim.keymap.set('n', '<leader>fg', builtin.git_files, { desc = '.gitignore aware file search' })
-        vim.keymap.set('n', '<leader>fgs', builtin.live_grep, { desc = 'Global string search' })
-        vim.keymap.set('n', '<leader>fls', builtin.current_buffer_fuzzy_find, { desc = 'Local string search' })
+        vim.keymap.set('n', '<leader>fG', builtin.git_files, { desc = '.gitignore aware file search' })
+        vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Global string search' })
+        vim.keymap.set('n', '<leader>fl', builtin.current_buffer_fuzzy_find, { desc = 'Local string search' })
         vim.keymap.set('n', '<leader>fr', builtin.resume, { desc = 'Open previous search' })
 
         -- These keys need to be registered before any LspAttach
