@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euo pipefail
+# set -euo pipefail
 
 root_dir=$(cd "$(dirname $BASH_SOURCE)" && pwd)
 
@@ -30,14 +30,14 @@ source "${root_dir}"/scripts/neovim.sh
 echo "> Installing Zellij..."
 source "${root_dir}"/scripts/zellij.sh
 
-# Kitty
-echo "> Installing Kitty..."
-source "${root_dir}"/scripts/kitty.sh
+# # Kitty
+# echo "> Installing Kitty..."
+# source "${root_dir}"/scripts/kitty.sh
 
 # Fonts
 echo ">> Unpacking fonts..."
 source "${root_dir}"/scripts/fonts.sh
 
-
+source ~/.bashrc
 echo "== Bootstrapping complete ==" 
 

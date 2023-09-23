@@ -23,14 +23,19 @@ return {
                     x = { 'Open diagnostic information for this file' }
                 },
                 f = {
-                    name = 'Telescope'
+                    name = 'Telescope',
+                    q = { 'Send search to quickfix' },
+                    w = { 'Send selected to quickfix' },
+                    g = {
+                        name = 'Greps',
+                    }
                 },
-                a = {
-                    name = 'Annotate',
+                n = {
+                    name = 'Harpoon'
                 },
-                w = {
-                    name = 'Focus',
-                },
+                m = {
+                    name = 'Bookmarks',
+                }
             },
             { mode = 'n' }
         })

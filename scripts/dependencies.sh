@@ -7,12 +7,13 @@ platform=$(uname)
 dir=$(realpath "$(dirname "${BASH_SOURCE[0]}")/..")
 
 # Install brew just in case it isn't there yet
-if [ $platform = "Darwin" ]
+# Apparently it installs in different places on mac depending on architecture...
+if $platform = "Darwin"
 then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
-if [ $platform != "Darwin" ]
+if $platform != "Darwin"
 then
     if command -v apt
     then

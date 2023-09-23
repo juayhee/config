@@ -35,7 +35,7 @@ themes {
 keybinds {
     locked {
         unbind "Ctrl g"
-        bind "Alt j" { SwitchToMode "Normal"; }
+        bind "Alt ;" { SwitchToMode "Normal"; }
     }
     resize {
         unbind "Ctrl n"
@@ -79,7 +79,7 @@ keybinds {
         unbind "Ctrl g"
             unbind "Ctrl q"
             bind "Alt ;" { SwitchToMode "locked"; }
-        bind "Alt q" { Quit; }
+        bind "Alt q" { Detach; }
     } 
     shared_except "pane" "locked" {
         unbind "Ctrl p"

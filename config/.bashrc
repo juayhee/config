@@ -8,7 +8,7 @@ export PATH=$PATH:~/.local/bin
 platform=$(uname)
 if [ $platform = "Darwin" ]
 then
-    eval "$(/opt/homebrew/bin/brew shellenv)"
+    eval "$(/opt/homebrew/bin/brew shellenv)" # Brew install location on ARM Macs
 fi
 
 # Aliases

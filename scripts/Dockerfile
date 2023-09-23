@@ -1,7 +1,8 @@
-FROM ubuntu:22.04
+FROM amazonlinux:2
 
-RUN apt-get update -y && \
-    apt-get upgrade -y && \
-    apt-get install -y \
-    git
+RUN yum update -y && \ 
+    yum upgrade -y && \
+    yum install -y git
 
+# Do clone in home directory, scripts have problems dealing with starting at '/'
+WORKDIR ~
