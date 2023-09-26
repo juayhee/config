@@ -23,8 +23,8 @@ return {
                         ['<C-w>s'] = actions.select_horizontal,
                         ['<C-w>v'] = actions.select_vertical,
                         ['<Tab>'] = actions.toggle_selection,
-                        ['<leader>fq'] = actions.send_to_qflist,
-                        ['<leader>fw'] = actions.send_selected_to_qflist,
+                        ['<leader>fq'] = actions.send_to_qflist + actions.open_qflist,
+                        ['<leader>fw'] = actions.send_selected_to_qflist + actions.open_qflist,
                     }
                 }
             }

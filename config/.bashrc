@@ -4,6 +4,9 @@ export BASH_SILENCE_DEPRECATION_WARNING=1 # Silence prompt on macos that encoura
 export CLICOLOR=1
 export PATH=$PATH:~/.local/bin
 
+# https://github.com/mickael-menu/zk-nvim
+export ZK_NOTEBOOK_DIR=~/notes
+
 # Set homebrew paths on macos
 platform=$(uname)
 if [ $platform = "Darwin" ]

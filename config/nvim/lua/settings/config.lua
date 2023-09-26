@@ -17,6 +17,7 @@ vim.cmd('set showcmd')
 vim.o.cursorline = true
 vim.o.cursorlineopt = 'number' -- Only highlight the line number
 vim.o.syntax = false
+vim.opt.colorcolumn='80'
 
 -- Search
 vim.cmd('set incsearch')
