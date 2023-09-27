@@ -1,5 +1,6 @@
 #!/bin/bash
-# set -euo pipefail
+
+set -x
 
 root_dir=$(cd "$(dirname $BASH_SOURCE)" && pwd)
 
@@ -38,6 +39,7 @@ source "${root_dir}"/scripts/zellij.sh
 echo ">> Unpacking fonts..."
 source "${root_dir}"/scripts/fonts.sh
 
+cd $root_dir # Return to root of dotfiles directory first, since cwd may not exist
 source ~/.bashrc
 echo "== Bootstrapping complete ==" 
 

@@ -8,14 +8,14 @@ dir=$(realpath "$(dirname "${BASH_SOURCE[0]}")/..")
 
 # Install brew just in case it isn't there yet
 # Apparently it installs in different places on mac depending on architecture...
-if $platform = "Darwin"
+if [ $platform = "Darwin" ]
 then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
-if $platform != "Darwin"
+if [ $platform != "Darwin" ]
 then
-    if command -v apt
+    if command -v apt > /dev/null
     then
         echo "Package manager detected: apt"
         source "${dir}"/scripts/apt.sh
