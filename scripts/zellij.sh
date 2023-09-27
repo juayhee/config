@@ -1,5 +1,4 @@
 #!/bin/bash
-set -euo pipefail
 
 ## Installs Zellij
 
@@ -26,7 +25,7 @@ tar -xvf ${dir}/tmp/zellij*.tar.gz > /dev/null 2>&1
 
 # Move to ~/.local/bin
 echo ">> Installing..."
-cp ${dir}/tmp/zellij ~/.local/bin
+cp -f ${dir}/tmp/zellij ~/.local/bin
 
 # Clean up
 rm -r ${dir}/tmp

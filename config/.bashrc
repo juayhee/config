@@ -2,7 +2,7 @@
 export BASH_SILENCE_DEPRECATION_WARNING=1 # Silence prompt on macos that encourages
                                           # users to change to zsh
 export CLICOLOR=1
-export PATH=$PATH:~/.local/bin
+export PATH=$PATH:~/.local/bin:/usr/local/bin
 
 # https://github.com/mickael-menu/zk-nvim
 export ZK_NOTEBOOK_DIR=~/notes

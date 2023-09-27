@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -x
-
 root_dir=$(cd "$(dirname $BASH_SOURCE)" && pwd)
 
 # Create necessary directories

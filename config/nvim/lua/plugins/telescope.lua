@@ -39,7 +39,7 @@ return {
         vim.keymap.set('n', '<leader>fgg', builtin.live_grep, { desc = 'Global grep' })
         vim.keymap.set('n', '<leader>fgl', function()
             builtin.live_grep({
-                cwd = utils.buffer_dir()
+                cwd = utils.buffer_dir() -- Only search in the current buffer
             })
         end, { desc = 'Local grep' })
         vim.keymap.set('n', '<leader>fl', builtin.current_buffer_fuzzy_find, { desc = 'Local fuzzy-find' })
