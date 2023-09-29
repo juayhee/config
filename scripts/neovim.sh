@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -euo pipefail
-
 platform=$(uname)
 
 # Absolute path to config root
@@ -28,6 +26,10 @@ else
 
 	echo ">> Extracting archive..."
 	tar xvzf nvim-macos.tar.gz
+    rm -f ~/.local/bin/nvim # For some reason running an nvim binary that overwrote
+                            # the previous binary results in 'Killed: 9'
+                            # Some kind of macOS security issue? So we remove the
+                            # old binary first
 	cp -r nvim-macos/* ~/.local
 fi
 

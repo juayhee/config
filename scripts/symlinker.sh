@@ -34,6 +34,10 @@ rm ~/.bashrc 2>/dev/null
 ln -s "${dir}/config/.bashrc" ~/ 
 echo "> Symlink set for .bashrc"
 
+rm ~/.gitignore 2>/dev/null
+ln -s "${dir}/config/.gitignore" ~/ 
+echo "> Symlink set for .gitignore"
+
 echo ">> Symlinks for ~ complete. "
 
 echo "== All symbolic links created. =="
