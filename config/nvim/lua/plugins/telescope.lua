@@ -32,10 +32,15 @@ return {
 
         -- Global keymaps
         -- Lazy load on triggering these keys
-        vim.keymap.set('n', '<leader>fF', function() builtin.find_files({ hidden = true }) end, {
+        vim.keymap.set('n', '<leader>fF', function()
+            builtin.find_files({
+                hidden = true,
+                no_ignore = true
+            })
+        end, {
             desc = 'All-file file search',
         })
-        vim.keymap.set('n', '<leader>ff', builtin.git_files, { desc = '.gitignore aware file search' })
+        vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = '.gitignore aware file search' })
         vim.keymap.set('n', '<leader>fgg', builtin.live_grep, { desc = 'Global grep' })
         vim.keymap.set('n', '<leader>fgl', function()
             builtin.live_grep({

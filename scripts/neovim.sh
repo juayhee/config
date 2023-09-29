@@ -28,7 +28,7 @@ else
 
 	echo ">> Extracting archive..."
 	tar xvzf nvim-macos.tar.gz
-	cp -r nvim-macos/* ~/.local
+	cp -rf nvim-macos/* ~/.local
 fi
 
 rm -r ${dir}/tmp
