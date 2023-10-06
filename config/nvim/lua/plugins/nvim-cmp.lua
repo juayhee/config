@@ -17,7 +17,7 @@ return {
                 documentation = cmp.config.window.bordered(),
             },
             mapping = cmp.mapping.preset.insert({
-                ['<esc>'] = cmp.mapping.abort(),
+                ['<esc>'] = cmp.mapping.close(),
                 ['<cr>'] = cmp.mapping.confirm({ select = false }),
                 ['<tab>'] = cmp.mapping.select_next_item(),
                 ['<S-tab>'] = cmp.mapping.select_prev_item(),
@@ -25,7 +25,10 @@ return {
             sources = cmp.config.sources({
                 { name = 'nvim_lsp' },
                 { name = 'luasnip' }
-            })
+            }),
+            performance = {
+                max_view_entries = 10,
+            }
         })
     end
 }

@@ -41,8 +41,8 @@ return {
             desc = 'All-file file search',
         })
         vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = '.gitignore aware file search' })
-        vim.keymap.set('n', '<leader>fgg', builtin.live_grep, { desc = 'Global grep' })
-        vim.keymap.set('n', '<leader>fgl', function()
+        vim.keymap.set('n', '<leader>fG', builtin.live_grep, { desc = 'Global grep' })
+        vim.keymap.set('n', '<leader>fg', function()
             builtin.live_grep({
                 cwd = utils.buffer_dir() -- Only search in the current buffer
             })

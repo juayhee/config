@@ -18,5 +18,11 @@ vim.keymap.set('n', '<leader>y', '\"+y')
 vim.keymap.set('v', '<leader>y', '\"+y')
 vim.keymap.set('n', '<leader>p', '\"+p')
 
--- Location list opening
+-- Quickfix list opening
 vim.keymap.set('n', '<leader>q', '<cmd>copen<cr>', { desc = 'Open quickfix list' })
+
+-- Diagnostics
+vim.keymap.set('n', '<leader>go', vim.diagnostic.open_float,
+    { desc = 'Open diagnostic in floating window' })
+vim.keymap.set('n', '<leader>gj', vim.diagnostic.goto_next, { desc = 'Next diagnostic' })
+vim.keymap.set('n', '<leader>gk', vim.diagnostic.goto_prev, { desc = 'Previous diagnostic' })

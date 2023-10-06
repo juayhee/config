@@ -3,9 +3,9 @@ export BASH_SILENCE_DEPRECATION_WARNING=1 # Silence prompt on macos that encoura
                                           # users to change to zsh
 export CLICOLOR=1
 export PATH=$PATH:~/.local/bin:/usr/local/bin
-
 # https://github.com/mickael-menu/zk-nvim
 export ZK_NOTEBOOK_DIR=~/notes
+export EDITOR=/usr/bin/vi
 
 # Set homebrew paths on macos
 platform=$(uname)
@@ -16,6 +16,7 @@ fi
 
 # Aliases
 alias vim='nvim'
+alias clear="printf '\033[2J\033[3J\033[1;1H'"
 
 # If not running interactively, don't do anything
 case $- in

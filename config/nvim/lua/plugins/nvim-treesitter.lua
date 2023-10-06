@@ -12,7 +12,6 @@ return {
             highlight = { enable = true,
                 additional_vim_regex_highlighting = false
             },
-            indent = { enable = true },
         })
 
         -- Use treesitter for folding
