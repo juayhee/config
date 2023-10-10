@@ -5,6 +5,7 @@ return {
         conform.setup({
             formatters_by_ft = {
                 cpp = { 'clang_format' },
+                cmake = { 'cmake_format' },
             }
         })
 
