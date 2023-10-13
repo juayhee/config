@@ -44,9 +44,9 @@ return {
         vim.keymap.set('n', '<leader>fG', builtin.live_grep, { desc = 'Global grep' })
         vim.keymap.set('n', '<leader>fg', function()
             builtin.live_grep({
-                cwd = utils.buffer_dir() -- Only search in the current buffer
+                grep_open_files = true -- Only search in the current buffer
             })
-        end, { desc = 'Local grep' })
+        end, { desc = 'grep in open files' })
         vim.keymap.set('n', '<leader>fl', builtin.current_buffer_fuzzy_find, { desc = 'Local fuzzy-find' })
         vim.keymap.set('n', '<leader>fr', builtin.resume, { desc = 'Open previous search' })
     end
