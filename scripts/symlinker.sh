@@ -21,11 +21,6 @@ ln -s  "${dir}/config/nvim" ~/.config/nvim
 echo "> Symlink set for NeoVim"
 echo ">> Symlinks for '.config' complete."
 
-# To ~/notes
-rm -rf ~/notes 2>/dev/null
-ln -s "${dir}"/notes ~/notes
-echo ">> Symlinks for 'notes' complete."
-
 ## To $HOME
 # .bashrc
 echo ">> Creating symlinks to ~"

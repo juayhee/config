@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -euo pipefail
-
 platform=$(uname)
 # Absolute path to config root
 dir=$(realpath "$(dirname "${BASH_SOURCE[0]}")/..")
@@ -13,21 +11,21 @@ then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
-if [ $platform != "Darwin" ]
+if command -v apt > /dev/null
 then
-    if command -v apt > /dev/null
-    then
-        echo "Package manager detected: apt"
-        source "${dir}"/scripts/apt.sh
-    fi
+    echo "Package manager detected: apt"
+    source "${dir}"/scripts/apt.sh
+
 elif command -v yum > /dev/null
 then
     echo "Package manager detected: yum"
     source "${dir}"/scripts/yum.sh
+
 elif command -v brew > /dev/null
 then
     echo "Package manager detected: brew"
     source "${dir}"/scripts/brew.sh
+
 else
     echo "!! Could not detect package manager"
     exit 1
