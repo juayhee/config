@@ -1,7 +1,6 @@
 // General
 default_shell "bash"
 pane_frames false
-mouse_mode false
 on_force_close "detach"
 default_layout "compact"
 

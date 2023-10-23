@@ -18,8 +18,9 @@ then
 
     echo ">> Extracting archive..."
     tar xvzf nvim-linux64.tar.gz
-    cp -r nvim-linux64/* ~/.local
-else if [ $platform = "Darwin" ]
+    cp -rf nvim-linux64/* ~/.local
+elif [ $platform = "Darwin" ]
+then
     echo ">> Downloading for macOS"
     curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-macos.tar.gz
     xattr -c ./nvim-macos.tar.gz # Avoid security check
@@ -31,10 +32,9 @@ else if [ $platform = "Darwin" ]
     # the previous binary results in 'Killed: 9'
     # Some kind of macOS security issue? So we remove the
     # old binary first
-    rm -f ~/.local/bin/nvim 
+    rm -rf ~/.local/bin/nvim 
     cp -r nvim-macos/* ~/.local
-
-else # Build from source
+else
     git clone https://github.com/neovim/neovim
     cd neovim
     git checkout stable

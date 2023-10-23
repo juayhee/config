@@ -23,8 +23,8 @@ return {
                         ['<C-w>s'] = actions.select_horizontal,
                         ['<C-w>v'] = actions.select_vertical,
                         ['<Tab>'] = actions.toggle_selection,
-                        ['<leader>fq'] = actions.send_to_qflist + actions.open_qflist,
-                        ['<leader>fw'] = actions.send_selected_to_qflist + actions.open_qflist,
+                        ['<leader>fd'] = actions.send_to_qflist + actions.open_qflist,
+                        ['<leader>fs'] = actions.send_selected_to_qflist + actions.open_qflist,
                     }
                 }
             }
@@ -44,7 +44,7 @@ return {
         vim.keymap.set('n', '<leader>fG', builtin.live_grep, { desc = 'Global grep' })
         vim.keymap.set('n', '<leader>fg', function()
             builtin.live_grep({
-                grep_open_files = true -- Only search in the current buffer
+                grep_open_files = true -- Only search in currently open files
             })
         end, { desc = 'grep in open files' })
         vim.keymap.set('n', '<leader>fl', builtin.current_buffer_fuzzy_find, { desc = 'Local fuzzy-find' })

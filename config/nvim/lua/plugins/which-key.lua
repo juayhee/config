@@ -24,8 +24,8 @@ return {
                 },
                 f = {
                     name = 'Telescope',
-                    q = { 'Send search to quickfix' },
-                    w = { 'Send selected to quickfix' },
+                    d = { 'Send search to quickfix' },
+                    s = { 'Send selected to quickfix' },
                     g = {
                         name = 'Greps',
                     }
