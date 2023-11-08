@@ -26,3 +26,5 @@ vim.keymap.set('n', '<leader>go', vim.diagnostic.open_float,
     { desc = 'Open diagnostic in floating window' })
 vim.keymap.set('n', '<leader>gj', vim.diagnostic.goto_next, { desc = 'Next diagnostic' })
 vim.keymap.set('n', '<leader>gk', vim.diagnostic.goto_prev, { desc = 'Previous diagnostic' })
+
+-- Git
