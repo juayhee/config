@@ -43,10 +43,10 @@ return {
         vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = '.gitignore aware file search' })
         vim.keymap.set('n', '<leader>fG', builtin.live_grep, { desc = 'Global grep' })
         vim.keymap.set('n', '<leader>fg', function()
-            builtin.live_grep({
-                grep_open_files = true -- Only search in currently open files
-            })
-        end, { desc = 'grep in open files' })
+            builtin.live_grep {
+                search_dirs = { vim.fn.expand('%:p') } -- Full path to current file
+            }
+        end, { desc = 'grep current file' })
         vim.keymap.set('n', '<leader>fl', builtin.current_buffer_fuzzy_find, { desc = 'Local fuzzy-find' })
         vim.keymap.set('n', '<leader>fr', builtin.resume, { desc = 'Open previous search' })
     end

@@ -15,9 +15,9 @@ return {
 
         -- Add autocompletion capabilities to lspconfig exist
         lsp_defaults.capabilities = vim.tbl_deep_extend(
-        'force',
-        lsp_defaults.capabilities,
-        require('cmp_nvim_lsp').default_capabilities()
+            'force',
+            lsp_defaults.capabilities,
+            require('cmp_nvim_lsp').default_capabilities()
         )
 
         -- Load installed servers from Mason
@@ -25,7 +25,7 @@ return {
         require('mason-lspconfig').setup()
         require('mason-lspconfig').setup_handlers({
             function(server)
-                lspconfig[server].setup{};
+                lspconfig[server].setup {};
             end
         })
         -- LSP related keymaps
@@ -38,14 +38,15 @@ return {
                 vim.keymap.set('n', '<leader>gt', builtin.lsp_type_definitions, opts)
                 vim.keymap.set('n', '<leader>gr', builtin.lsp_references, opts)
                 vim.keymap.set('n', '<leader>gh', vim.lsp.buf.hover, opts)
-                vim.keymap.set('n', '<leader>gS', vim.lsp.buf.signature_help, opts)
+                vim.keymap.set('n', '<leader>gS', builtin.lsp_dynamic_workspace_symbols, opts)
                 vim.keymap.set('n', '<leader>gn', vim.lsp.buf.rename, opts)
                 vim.keymap.set('n', '<leader>ga', vim.lsp.buf.code_action, opts)
                 vim.keymap.set('n', '<leader>gs', builtin.lsp_document_symbols, opts)
                 vim.keymap.set('n', '<leader>gi', builtin.lsp_implementations, opts)
-                vim.keymap.set('n', '<leader>gx', builtin.diagnostics, opts)
+                vim.keymap.set('n', '<leader>gx', function()
+                    builtin.diagnostics{ bufnr = 0 }
+                end, opts)
             end,
         })
     end
 }
-

@@ -6,6 +6,7 @@ export PATH=$PATH:~/.local/bin:/usr/local/bin
 # https://github.com/mickael-menu/zk-nvim
 export ZK_NOTEBOOK_DIR=~/notes
 export EDITOR=/usr/bin/vi
+export GIT_EDITOR=nvim
 
 # Set homebrew paths on macos
 platform=$(uname)

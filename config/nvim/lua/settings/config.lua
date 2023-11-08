@@ -18,6 +18,8 @@ vim.o.cursorline = true
 vim.o.cursorlineopt = 'number' -- Only highlight the line number
 vim.o.syntax = false
 vim.opt.colorcolumn = '80'
+vim.opt.formatoptions:remove("o")
+--
 
 -- Search
 vim.cmd('set incsearch')
@@ -29,3 +31,7 @@ vim.o.splitright = true -- Always split to the right
 
 -- Diagnostics
 vim.diagnostic.config({ virtual_text = false })
+
+-- Remove autocommenting
+vim.cmd('autocmd BufEnter * set formatoptions-=cro')
+vim.cmd('autocmd BufEnter * setlocal formatoptions-=cro')
