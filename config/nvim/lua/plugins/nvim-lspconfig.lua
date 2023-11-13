@@ -28,6 +28,7 @@ return {
                 lspconfig[server].setup {};
             end
         })
+
         -- LSP related keymaps
         vim.api.nvim_create_autocmd('LspAttach', {
             callback = function(event)

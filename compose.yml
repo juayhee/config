@@ -1,0 +1,8 @@
+services:
+  dev:
+    image: dotfiles
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ${MOUNT}:/root

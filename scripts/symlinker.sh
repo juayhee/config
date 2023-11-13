@@ -15,11 +15,6 @@ rm -rf ~/.config/zellij 2>/dev/null
 ln -s "${dir}/config/zellij" ~/.config/zellij 
 echo "> Symlink set for Zellij"
 
-# Lazygit
-rm -rf ~/.config/lazygit 2>/dev/null
-ln -s "${dir}/config/lazygit" ~/.config/lazygit
-echo "> Symlink set for Lazygit"
-
 # NeoVim
 rm -rf ~/.config/nvim 2>/dev/null
 ln -s  "${dir}/config/nvim" ~/.config/nvim 

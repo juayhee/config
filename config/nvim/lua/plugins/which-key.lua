@@ -33,9 +33,9 @@ return {
                 n = {
                     name = 'Harpoon'
                 },
-                m = {
-                    name = 'Bookmarks',
-                }
+                s = {
+                    name = 'Spectre'
+                },
             },
             { mode = 'n' }
         })
