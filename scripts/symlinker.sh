@@ -5,16 +5,6 @@ dir=$(realpath "$(dirname "${BASH_SOURCE[0]}")/..")
 
 echo ">> Creating symlinks to ~/.config"
 ## To .config
-# Kitty
-rm -rf ~/.config/kitty 2>/dev/null
-ln -s "${dir}/config/kitty" ~/.config/kitty 
-echo "> Symlink set for Kitty"
-
-# Zellij
-rm -rf ~/.config/zellij 2>/dev/null
-ln -s "${dir}/config/zellij" ~/.config/zellij 
-echo "> Symlink set for Zellij"
-
 # NeoVim
 rm -rf ~/.config/nvim 2>/dev/null
 ln -s  "${dir}/config/nvim" ~/.config/nvim 
@@ -29,9 +19,13 @@ rm ~/.bashrc 2>/dev/null
 ln -s "${dir}/config/.bashrc" ~/ 
 echo "> Symlink set for .bashrc"
 
-rm ~/.gitignore 2>/dev/null
-ln -s "${dir}/config/.gitignore" ~/ 
-echo "> Symlink set for .gitignore"
+rm ~/.ideavimrc 2>/dev/null
+ln -s "${dir}/config/.ideavimrc" ~/ 
+echo "> Symlink set for .ideavimrc"
+
+rm ~/.vimrc 2>/dev/null
+ln -s "${dir}/config/.vimrc" ~/ 
+echo "> Symlink set for .vimrc"
 
 echo ">> Symlinks for ~ complete. "
 
